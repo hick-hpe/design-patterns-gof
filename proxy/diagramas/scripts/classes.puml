@@ -1,0 +1,27 @@
+@startuml
+
+interface MaterialDidatico {
+    + acessar() : void
+}
+
+class MaterialDidaticoReal {
+    - nome : String
+
+    + MaterialDidaticoReal(nome : String)
+    + acessar() : void
+}
+
+class ProxyMaterialDidatico {
+    - materialReal : MaterialDidaticoReal
+    - autorizado : boolean
+
+    + ProxyMaterialDidatico(autorizado : boolean)
+    + acessar() : void
+}
+
+MaterialDidatico <|.. MaterialDidaticoReal
+MaterialDidatico <|.. ProxyMaterialDidatico
+
+ProxyMaterialDidatico --> MaterialDidaticoReal : controla acesso
+
+@enduml

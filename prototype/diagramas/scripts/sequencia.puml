@@ -1,0 +1,20 @@
+@startuml
+
+actor Professor
+participant "planoOriginal : PlanoAula" as Original
+participant "planoClonado : PlanoAula" as Clone
+
+Professor -> Original : new PlanoAula(...)
+Professor -> Original : clone()
+Original -> Clone : cria cópia dos atributos
+Clone --> Original : novo PlanoAula
+
+Professor -> Clone : setDisciplina("Engenharia de Software")
+
+Professor -> Original : toString()
+Original --> Professor : dados do plano original
+
+Professor -> Clone : toString()
+Clone --> Professor : dados do plano clonado
+
+@enduml

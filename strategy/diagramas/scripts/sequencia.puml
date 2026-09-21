@@ -1,0 +1,24 @@
+@startuml
+
+actor Professor
+participant "CalculadoraNota" as Calculadora
+participant "MediaSimples" as Simples
+participant "MediaPonderada" as Ponderada
+
+== Média simples ==
+
+Professor -> Calculadora : new CalculadoraNota(MediaSimples)
+Professor -> Calculadora : calcularNota(8, 10)
+Calculadora -> Simples : calcular(8, 10)
+Simples --> Calculadora : 9.0
+Calculadora --> Professor : 9.0
+
+== Média ponderada ==
+
+Professor -> Calculadora : new CalculadoraNota(MediaPonderada)
+Professor -> Calculadora : calcularNota(8, 10)
+Calculadora -> Ponderada : calcular(8, 10)
+Ponderada --> Calculadora : 9.2
+Calculadora --> Professor : 9.2
+
+@enduml

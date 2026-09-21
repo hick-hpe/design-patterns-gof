@@ -1,0 +1,26 @@
+@startuml
+
+actor Professor
+participant "ProxyMaterialDidatico" as Proxy
+participant "MaterialDidaticoReal" as Real
+
+== Acesso não autorizado ==
+
+Professor -> Proxy : acessar()
+Proxy -> Proxy : verifica autorizado
+Proxy --> Professor : "Acesso negado ao material."
+
+== Acesso autorizado ==
+
+Professor -> Proxy : acessar()
+Proxy -> Proxy : verifica autorizado
+
+alt materialReal == null
+    Proxy -> Real : new MaterialDidaticoReal(...)
+end
+
+Proxy -> Real : acessar()
+Real --> Proxy : material acessado
+Proxy --> Professor : "Material acessado"
+
+@enduml

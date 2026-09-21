@@ -1,0 +1,27 @@
+@startuml
+
+interface CalculoNota {
+    + calcular(nota1 : double, nota2 : double) : double
+}
+
+class MediaSimples {
+    + calcular(nota1 : double, nota2 : double) : double
+}
+
+class MediaPonderada {
+    + calcular(nota1 : double, nota2 : double) : double
+}
+
+class CalculadoraNota {
+    - estrategia : CalculoNota
+
+    + CalculadoraNota(estrategia : CalculoNota)
+    + calcularNota(nota1 : double, nota2 : double) : double
+}
+
+CalculoNota <|.. MediaSimples
+CalculoNota <|.. MediaPonderada
+
+CalculadoraNota --> CalculoNota : utiliza
+
+@enduml

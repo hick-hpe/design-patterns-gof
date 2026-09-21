@@ -1,0 +1,19 @@
+@startuml
+
+class PlanoAula {
+    - disciplina : String
+    - conteudo : String
+    - duracao : int
+    - metodologia : String
+
+    + PlanoAula(disciplina : String, conteudo : String, duracao : int, metodologia : String)
+    + clone() : PlanoAula
+    + setDisciplina(disciplina : String) : void
+    + toString() : String
+}
+
+interface Cloneable
+
+PlanoAula ..|> Cloneable
+
+@enduml

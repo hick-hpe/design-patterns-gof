@@ -1,9 +1,0 @@
-package strategy;
-
-class PagamentoBoleto implements Pagamento {
-
-    @Override
-    public void pagar(double valor) {
-        System.out.println("Pagamento de R$ " + String.format("%.2f", valor) + " realizado via boleto.");
-    }
-}
