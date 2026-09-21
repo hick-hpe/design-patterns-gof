@@ -1,0 +1,4 @@
+interface Arquivo {
+    void acessar();
+}
+
